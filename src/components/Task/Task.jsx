@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./task.module.css";
-
+import Counter from "../Counter/Counter.jsx"
 const Task = () => {
   // NOTE: do not delete `data-testid` key value pair
   return (
