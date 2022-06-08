@@ -29,18 +29,6 @@
       "text": "Stairs",
       "done": false,
       "count": 200
-    },
-    {
-      "text": "Walking",
-      "done": false,
-      "count": 0,
-      "id": 6
-    },
-    {
-      "text": "Jump",
-      "done": false,
-      "count": 0,
-      "id": 7
     }
   ]
 }
