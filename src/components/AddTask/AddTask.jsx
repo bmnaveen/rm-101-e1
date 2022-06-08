@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./addTask.module.css";
 import axios from "axios"
-
+import { nanoid } from 'nanoid'
 const AddTask = ({rata,setData}) => {
   // NOTE: do not delete `data-testid` key value pair
 
@@ -30,7 +30,7 @@ if(inter.length<=0){
 
 let ko=[...rata]
 ko.push({
-  id: 10,
+  id: nanoid(),
   text: inter,
   done: false,
   count: 1
@@ -42,7 +42,7 @@ setData(ko)
   return (
     <div className={styles.todoForm}>
       <input onChange={getInput} data-testid="add-task-input" type="text" />
-      <button onClick={sendData} data-testid="add-task-button">Button</button>
+      <button onClick={sendData} data-testid="add-task-button">Add</button>
     </div>
   );
 };

@@ -10,12 +10,40 @@ const Task = ({rata,setData}) => {
     <li data-testid="task" className={styles.task}>
 
 {
-  rata.map((e)=>{
+  rata.map((x,i)=>{
     return <>
-     <input type="checkbox" data-testid="task-checkbox" />
-      <div data-testid="task-text">{e.text}</div>
-     <Counter rata={rata} setData={setData}></Counter>
-      <button data-testid="task-remove-button"></button>
+     <input onClick={(e)=>{
+       if(e.target.checked){
+         let k=[...rata];
+k.forEach((v)=>{
+if(v.text==x.text){
+  v.done=(true)
+}
+})
+setData(k)
+       }else{
+        let k=[...rata];
+        k.forEach((v)=>{
+        if(v.text==x.text){
+          v.done=(false)
+        }
+        })
+        setData(k)
+       }
+     }} type="checkbox" checked={x.done} data-testid="task-checkbox" />
+      <div style={{textDecoration: x.done ? "line-through" : "none"  }} data-testid="task-text">{x.text}</div>
+     <Counter countis={x.count}></Counter>
+      <button onClick={()=>{
+ let k=[...rata].filter((v)=>{
+  if(v.text==x.text){
+    return false
+  }else{
+   return true
+  }
+  });
+ 
+ setData(k)
+      }} data-testid="task-remove-button">Delete</button>
     </>
   })
 }  
