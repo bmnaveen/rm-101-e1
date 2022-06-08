@@ -17,8 +17,22 @@ const sendData=()=>{
 if(inter.length<=0){
   return ;
 }
-axios.get("http://localhost:8080/").then((res)=>{
-console.log(res.data)
+axios.get(`http://localhost:8080/tasks?text=${inter}`).then((res)=>{
+  let ter=res.data[0]
+if(ter){
+  alert("already exixt")
+  return;
+}else{
+  axios.post(`http://localhost:8080/tasks`,{
+    text: inter,
+    done: false,
+    count: 0
+  }).then((res)=>{
+console.log(res)
+  }).catch((err)=>{
+    console.log(err)
+  })
+}
 }).catch((err)=>{
   console.log(err)
 })
