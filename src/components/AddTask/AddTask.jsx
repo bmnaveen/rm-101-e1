@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./addTask.module.css";
 import axios from "axios"
 
-const AddTask = () => {
+const AddTask = ({rata,setData}) => {
   // NOTE: do not delete `data-testid` key value pair
 
   const [inter,setInt]=useState("")
@@ -15,28 +15,28 @@ setInt(value)
 
 const sendData=()=>{
 if(inter.length<=0){
-  return ;
-}
-axios.get(`http://localhost:8080/tasks?text=${inter}`).then((res)=>{
-  let ter=res.data[0]
-if(ter){
-  alert("already exixt")
   return;
 }else{
-  axios.post(`http://localhost:8080/tasks`,{
-    text: inter,
-    done: false,
-    count: 0
-  }).then((res)=>{
-console.log(res)
-  }).catch((err)=>{
-    console.log(err)
+  let c=0;
+  rata.forEach((x)=>{
+  
+    if(x.text==inter){
+      
+     c++ ;
+    } 
   })
+  if(c>=1) return
 }
-}).catch((err)=>{
-  console.log(err)
-})
 
+let ko=[...rata]
+ko.push({
+  id: 10,
+  text: inter,
+  done: false,
+  count: 1
+})
+setData(ko)
+  
 }
 
   return (

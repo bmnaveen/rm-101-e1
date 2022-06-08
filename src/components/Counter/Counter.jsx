@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./counter.module.css";
 
-const Counter = () => {
+const Counter = ({rata}) => {
+  console.log(rata)
   // sample value to be replaced
   let count = 0;
   // NOTE: do not delete `data-testid` key value pair
