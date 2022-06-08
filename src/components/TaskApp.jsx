@@ -6,19 +6,12 @@ import axios from "axios"
 import AddTask from "./AddTask/AddTask";
 import Task from "./Task/Task";
 import TaskHeader from "./TaskHeader/TaskHeader";
+import tasks from "../data/tasks.json"
 const TaskApp = () => {
 
- const  [rata,setData]=useState([]);
+ const  [rata,setData]=useState(tasks);
 
-  useEffect(()=>{
-    
-      axios.get(`http://localhost:8080/tasks`).then((res)=>{
-        setData( res.data)
-    }).catch((err)=>{
-      console.log(err)
-    })
-    
-  },[])
+
   // NOTE: do not delete `data-testid` key value pair
   return (
     <div data-testid="task-app" className={styles.taskApp}>
