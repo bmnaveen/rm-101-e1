@@ -15,6 +15,7 @@ setInt(value)
 
 const sendData=()=>{
 if(inter.length<=0){
+  alert("Empty fields")
   return;
 }else{
   let c=0;
@@ -25,7 +26,9 @@ if(inter.length<=0){
      c++ ;
     } 
   })
-  if(c>=1) return
+  if(c>=1){
+    alert("Already exit")
+  } return
 }
 
 let ko=[...rata]
