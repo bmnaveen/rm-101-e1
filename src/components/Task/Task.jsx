@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import styles from "./task.module.css";
 import Counter from "../Counter/Counter.jsx"
 import axios from "axios";
-const Task = ({rata,setData}) => {
+const Task = ({x,rata,setData}) => {
   
   
   // NOTE: do not delete `data-testid` key value pair
   return (
     <li data-testid="task" className={styles.task}>
 
-{
-  rata.map((x,i)=>{
-    return <>
+
+    
      <input onClick={(e)=>{
        if(e.target.checked){
          let k=[...rata];
@@ -44,9 +43,9 @@ setData(k)
  
  setData(k)
       }} data-testid="task-remove-button">Delete</button>
-    </>
-  })
-}  
+   
+ 
+  
     </li>
   );
 };

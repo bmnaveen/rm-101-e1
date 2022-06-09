@@ -3,7 +3,7 @@ import styles from "./taskHeader.module.css";
 
 const TaskHeader = ({rata,setData}) => {
   // sample values to be replaced
-console.log(rata,setData)
+
 const remlength=[...rata].filter((e)=>{
   if(e.done==false){
     return true
